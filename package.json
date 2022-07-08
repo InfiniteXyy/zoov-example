@@ -1,5 +1,5 @@
 {
-  "name": "react-ts",
+  "name": "zoov-example",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -25,5 +25,7 @@
   },
   "prettier": {
     "printWidth": 120
-  }
+  },
+  "keywords": [],
+  "description": ""
 }
