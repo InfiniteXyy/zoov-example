@@ -29,7 +29,7 @@ const LogProvider = defineProvider((handle) => {
   });
 });
 
-const CounterProvider = defineProvider((handle) => {
+const CounterPersistProvider = defineProvider((handle) => {
   handle(CounterModule, {
     defaultValue: { count: 1 },
     middleware: (store) => persist(store, { name: "count2" }),
@@ -49,20 +49,20 @@ const Counter: React.FC<{ title: string }> = ({ title }) => {
   );
 };
 
-export const WithProvider: React.FC = React.memo(() => {
+export const WithProvider = React.memo(() => {
   return (
     <div>
       <h3>With Provider</h3>
       <div style={{ display: "grid", gridAutoFlow: "column", gridGap: "20px" }}>
         <LogProvider>
           <Counter title={"log"} />
-          <CounterProvider>
-            <Counter title={"log & counter"} />
-          </CounterProvider>
+          <CounterPersistProvider>
+            <Counter title={"log & counter persist"} />
+          </CounterPersistProvider>
         </LogProvider>
-        <CounterProvider>
-          <Counter title={"counter"} />
-        </CounterProvider>
+        <CounterPersistProvider>
+          <Counter title={"counter persist"} />
+        </CounterPersistProvider>
       </div>
     </div>
   );

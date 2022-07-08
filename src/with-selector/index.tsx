@@ -8,13 +8,13 @@ const CounterModule = defineModule({ count: 0, input: "hello" })
   })
   .build();
 
-const InputComponent: React.FC = React.memo(() => {
+const InputComponent = React.memo(() => {
   const [input, { setInput }] = CounterModule.use((state) => state.input);
   console.log("input component rerender");
   return <input value={input} onChange={(e) => setInput(e.target.value)} />;
 });
 
-export const WithSelector: React.FC = React.memo(() => {
+export const WithSelector = React.memo(() => {
   const [{ count, input }, { add }] = CounterModule.use();
 
   return (

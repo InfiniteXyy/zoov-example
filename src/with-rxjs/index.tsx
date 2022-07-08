@@ -1,6 +1,6 @@
 import * as React from "react";
 import { defineModule } from "zoov";
-import { effect } from "zoov/utils";
+import { effect } from "zoov/effect";
 import { exhaustMap, tap } from "rxjs/operators";
 import { timer } from "rxjs";
 
@@ -19,16 +19,16 @@ const CounterModule = defineModule({ count: 0 })
   }))
   .build();
 
-export const WithRxJS: React.FC = React.memo(() => {
+export const WithRxJS = React.memo(() => {
   const [{ count }, { addAfter }] = CounterModule.use();
 
   const addOne = React.useCallback(() => {
     addAfter(300);
-  }, []);
+  }, [addAfter]);
 
   return (
     <div>
-      <h3>With RxJS</h3>
+      <h3>With RxJS (Optional, require rxjs installed)</h3>
       <p>
         count: <b>{count}</b>
       </p>

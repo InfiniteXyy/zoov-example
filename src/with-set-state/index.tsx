@@ -4,8 +4,7 @@ import { defineModule } from "zoov";
 const Module = defineModule({
   info: { name: "xyy", age: 12 },
   checked: false,
-})
-  .build();
+}).build();
 
 const AnotherModule = defineModule({})
   .methods(({ getActions }) => ({
@@ -15,7 +14,7 @@ const AnotherModule = defineModule({})
   }))
   .build();
 
-export const WithSetState: React.FC = React.memo(() => {
+export const WithSetState = React.memo(() => {
   const [state, { setState }] = Module.use();
   const { toggleChecked } = AnotherModule.useActions();
 

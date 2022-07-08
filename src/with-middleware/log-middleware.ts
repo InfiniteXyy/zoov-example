@@ -3,15 +3,12 @@ import { StateCreator } from "zustand";
 type State = { count: number };
 
 // forked from https://github.com/pmndrs/zustand
-export const log = (
-  create: StateCreator<State>,
-  options: { prefix: string }
-): StateCreator<State> => (set, get, api) =>
-  create(
-    args => {
-      set(args);
+export const log =
+  (create: StateCreator<State, any, any, any>, options: { prefix: string }): StateCreator<State, any, any, any> =>
+  (set, get, api, mutations) => {
+    const newSet: typeof set = (...args) => {
+      set(...args);
       console.log(options.prefix, get());
-    },
-    get,
-    api
-  );
+    };
+    return create(newSet, get, api, mutations);
+  };
