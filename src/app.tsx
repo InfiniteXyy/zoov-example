@@ -4,6 +4,7 @@ import { WithMiddleware } from "./with-middleware";
 import { WithProvider } from "./with-provider";
 import { WithRxJS } from "./with-rxjs";
 import { WithSelector } from "./with-selector";
+import { WithSelectorAuto } from "./with-selector-auto";
 import { WithSetState } from "./with-set-state";
 
 export const App = () => {
@@ -15,6 +16,7 @@ export const App = () => {
       <WithSetState />
       <WithRxJS />
       <WithSelector />
+      <WithSelectorAuto />
     </div>
   );
 };
