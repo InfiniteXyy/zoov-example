@@ -1,4 +1,5 @@
 import { BasicUsage } from "./basic-usage";
+import { ResetStateUsage } from "./reset-state";
 import { WithComputed } from "./with-computed";
 import { WithMiddleware } from "./with-middleware";
 import { WithProvider } from "./with-provider";
@@ -12,6 +13,7 @@ export const App = () => {
   return (
     <div>
       <BasicUsage />
+      <ResetStateUsage />
       <WithComputed />
       <WithMiddleware />
       <WithProvider />
