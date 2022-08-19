@@ -6,17 +6,16 @@ const { use: useExampleModule } = defineModule(INITIAL_STATE)
   .actions({
     add: (draft, payload: number = 1) => (draft.count += payload),
     setInput: (draft, input: string) => (draft.deep.input = input),
-    reset: (draft) => Object.assign(draft, INITIAL_STATE),
   })
   .build();
 
 export const ResetStateUsage = React.memo(() => {
-  const [{ count, deep }, { add, setInput, reset }] = useExampleModule();
+  const [{ count, deep }, { add, setInput, $reset }] = useExampleModule();
 
   return (
     <div>
       <h3>Reset State</h3>
-      <button onClick={reset}>Reset</button>
+      <button onClick={$reset}>Reset</button>
       <button onClick={() => add(1)}>+1</button>
       <input value={deep.input} onChange={(e) => setInput(e.target.value)} />
       <p>

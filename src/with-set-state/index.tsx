@@ -9,22 +9,22 @@ const Module = defineModule({
 const AnotherModule = defineModule({})
   .methods(({ getActions }) => ({
     toggleChecked: () => {
-      getActions(Module).setState("checked", (checked) => !checked);
+      getActions(Module).$setState("checked", (checked) => !checked);
     },
   }))
   .build();
 
 export const WithSetState = React.memo(() => {
-  const [state, { setState }] = Module.use();
+  const [state, { $setState }] = Module.use();
   const { toggleChecked } = AnotherModule.useActions();
 
   return (
     <div>
-      <h3>With setState action</h3>
+      <h3>With $setState action</h3>
       <div>{JSON.stringify(state)}</div>
-      <button onClick={() => setState("info", "age", (age) => age + 1)}>grow</button>
-      <code>{`/* onClick callback */ setState("info", "age", (age) => age + 1);`}</code>
-      <input value={state.info.name} onChange={(e) => setState("info", "name", e.target.value)} />
+      <button onClick={() => $setState("info", "age", (age) => age + 1)}>grow</button>
+      <code>{`/* onClick callback */ $setState("info", "age", (age) => age + 1);`}</code>
+      <input value={state.info.name} onChange={(e) => $setState("info", "name", e.target.value)} />
       <input type="checkbox" checked={state.checked} onChange={toggleChecked} />
     </div>
   );

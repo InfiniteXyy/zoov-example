@@ -30,14 +30,14 @@ const FibonacciResult = memo(() => {
 });
 
 export const WithComputed: FC = memo(() => {
-  const [{ count, input }, { add, minus, setState }] = useCounter();
+  const [{ count, input }, { add, minus, $setState }] = useCounter();
 
   return (
     <div>
       <h3>With Computed</h3>
       <small>The result will not be computed multiple times</small>
       <div>
-        <input value={input} onChange={(e) => setState("input", e.target.value)} />
+        <input value={input} onChange={(e) => $setState("input", e.target.value)} />
       </div>
       <p>
         fibonacci {count} =
