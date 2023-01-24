@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "immer": "^9.0.15",
+    "immer": "^9.0.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-tracked": "^1.7.10",
-    "rxjs": "^7.5.7",
-    "zoov": "^0.4.1",
-    "zustand": "4.1.1"
+    "react-tracked": "^1.7.11",
+    "rxjs": "^7.8.0",
+    "zoov": "^0.5.0",
+    "zustand": "4.3.2"
   },
   "scripts": {
     "dev": "vite",
@@ -18,12 +18,12 @@
     "test": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.1.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.0.1",
     "scheduler": "^0.23.0",
-    "typescript": "^4.8.4",
-    "vite": "^3.1.4"
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
   },
   "prettier": {
     "printWidth": 120

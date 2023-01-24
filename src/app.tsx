@@ -7,6 +7,7 @@ import { WithRxJS } from "./with-rxjs";
 import { WithSelector } from "./with-selector";
 import { WithSelectorAuto } from "./with-selector-auto";
 import { WithSetState } from "./with-set-state";
+import { WithSubscription } from "./with-subscription";
 import { WithTransientScope } from "./with-transient-scope";
 
 export const App = () => {
@@ -22,6 +23,7 @@ export const App = () => {
       <WithSelector />
       <WithSelectorAuto />
       <WithTransientScope />
+      <WithSubscription />
     </div>
   );
 };
