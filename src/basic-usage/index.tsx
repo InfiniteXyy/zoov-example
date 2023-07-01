@@ -14,6 +14,7 @@ const CounterModule = defineModule({ count: 0 })
     async waitAndAdd(payload: number = 1, timeout: number = 1000) {
       await new Promise((resolve) => setTimeout(resolve, timeout));
       this.getActions().add(payload);
+      console.log("doubled is", this.getComputed().doubled);
     },
   })
   .build();
@@ -23,15 +24,23 @@ function addTwo() {
   CounterModule.getActions().add(2);
 }
 
+const Computed = React.memo(() => {
+  const { doubled } = CounterModule.useComputed();
+  return (
+    <>
+      doubled: <b>{doubled}</b>
+    </>
+  );
+});
+
 export const BasicUsage = React.memo(() => {
   const [{ count }, { add, minus, waitAndAdd }] = CounterModule.use();
-  const { doubled } = CounterModule.useComputed();
 
   return (
     <div>
       <h3>Basic Usage</h3>
       <p>
-        count: <b style={{ marginRight: 20 }}>{count}</b> doubled: <b>{doubled}</b>
+        count: <b style={{ marginRight: 20 }}>{count}</b> <Computed />
       </p>
       <button onClick={() => minus(1)}>-1</button>
       <button onClick={() => add(1)}>+1</button>
